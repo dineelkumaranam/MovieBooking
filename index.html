@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MovieBook - Movie Ticket Booking</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Movie<span>Book</span></div>
+    <input id="search" class="search" type="search" placeholder="Search movies...">
+    <button id="homeBtn" class="nav-btn">Home</button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <p class="eyebrow">MOVIE TICKET BOOKING</p>
+        <h1>Book your next movie night.</h1>
+        <p>Choose a movie, select your seats, and confirm your booking in seconds.</p>
+        <button id="browseBtn" class="primary">Browse Movies</button>
+      </div>
+    </section>
+
+    <section class="section" id="moviesSection">
+      <div class="section-title">
+        <h2>Recommended Movies</h2>
+        <span id="movieCount"></span>
+      </div>
+      <div id="movieGrid" class="movie-grid"></div>
+    </section>
+
+    <section id="bookingPanel" class="booking-panel hidden">
+      <div class="booking-header">
+        <div>
+          <p class="eyebrow">BOOK TICKETS</p>
+          <h2 id="selectedMovieTitle"></h2>
+          <p id="selectedMovieMeta"></p>
+        </div>
+        <button id="closeBooking" class="icon-btn" aria-label="Close booking">×</button>
+      </div>
+
+      <div class="booking-content">
+        <div>
+          <h3>1. Choose a show</h3>
+          <div id="showtimes" class="showtimes"></div>
+
+          <h3>2. Select seats</h3>
+          <div class="screen">SCREEN</div>
+          <div id="seats" class="seats"></div>
+          <p class="legend">
+            <span class="dot available"></span> Available
+            <span class="dot selected"></span> Selected
+            <span class="dot occupied"></span> Occupied
+          </p>
+        </div>
+
+        <aside class="summary">
+          <h3>Booking Summary</h3>
+          <div class="summary-row"><span>Movie</span><strong id="summaryMovie">-</strong></div>
+          <div class="summary-row"><span>Show</span><strong id="summaryShow">-</strong></div>
+          <div class="summary-row"><span>Seats</span><strong id="summarySeats">0</strong></div>
+          <div class="summary-row"><span>Price / seat</span><strong>₹180</strong></div>
+          <hr>
+          <div class="total"><span>Total</span><strong id="total">₹0</strong></div>
+          <button id="bookBtn" class="primary full" disabled>Confirm Booking</button>
+          <p class="note">Demo only — no real payment is processed.</p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <div id="successModal" class="modal hidden">
+    <div class="modal-card">
+      <div class="success-icon">✓</div>
+      <h2>Booking Successful!</h2>
+      <p id="confirmationText"></p>
+      <button id="finishBtn" class="primary full">Finish & Close</button>
+      <button id="stayBtn" class="text-btn">Stay on page</button>
+    </div>
+  </div>
+
+  <footer>MovieBook Demo • Built with HTML, CSS & JavaScript</footer>
+  <script src="script.js"></script>
+</body>
+</html>

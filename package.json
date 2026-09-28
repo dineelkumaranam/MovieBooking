@@ -1,0 +1,14 @@
+{
+  "name": "moviebook-razorpay",
+  "version": "1.0.0",
+  "description": "BookMyShow-style movie booking app with Razorpay online payment",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "razorpay": "^2.9.6"
+  }
+}

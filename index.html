@@ -3,85 +3,101 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MovieBook - Movie Ticket Booking</title>
+  <title>MovieBook - Online Movie Booking</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="navbar">
-    <div class="logo">Movie<span>Book</span></div>
-    <input id="search" class="search" type="search" placeholder="Search movies...">
-    <button id="homeBtn" class="nav-btn">Home</button>
-  </header>
+<header>
+  <div class="logo">🎬 MovieBook</div>
+  <p>Movie booking + online payment</p>
+</header>
 
-  <main>
-    <section class="hero">
-      <div>
-        <p class="eyebrow">MOVIE TICKET BOOKING</p>
-        <h1>Book your next movie night.</h1>
-        <p>Choose a movie, select your seats, and confirm your booking in seconds.</p>
-        <button id="browseBtn" class="primary">Browse Movies</button>
-      </div>
-    </section>
-
-    <section class="section" id="moviesSection">
-      <div class="section-title">
-        <h2>Recommended Movies</h2>
-        <span id="movieCount"></span>
-      </div>
-      <div id="movieGrid" class="movie-grid"></div>
-    </section>
-
-    <section id="bookingPanel" class="booking-panel hidden">
-      <div class="booking-header">
-        <div>
-          <p class="eyebrow">BOOK TICKETS</p>
-          <h2 id="selectedMovieTitle"></h2>
-          <p id="selectedMovieMeta"></p>
-        </div>
-        <button id="closeBooking" class="icon-btn" aria-label="Close booking">×</button>
-      </div>
-
-      <div class="booking-content">
-        <div>
-          <h3>1. Choose a show</h3>
-          <div id="showtimes" class="showtimes"></div>
-
-          <h3>2. Select seats</h3>
-          <div class="screen">SCREEN</div>
-          <div id="seats" class="seats"></div>
-          <p class="legend">
-            <span class="dot available"></span> Available
-            <span class="dot selected"></span> Selected
-            <span class="dot occupied"></span> Occupied
-          </p>
-        </div>
-
-        <aside class="summary">
-          <h3>Booking Summary</h3>
-          <div class="summary-row"><span>Movie</span><strong id="summaryMovie">-</strong></div>
-          <div class="summary-row"><span>Show</span><strong id="summaryShow">-</strong></div>
-          <div class="summary-row"><span>Seats</span><strong id="summarySeats">0</strong></div>
-          <div class="summary-row"><span>Price / seat</span><strong>₹180</strong></div>
-          <hr>
-          <div class="total"><span>Total</span><strong id="total">₹0</strong></div>
-          <button id="bookBtn" class="primary full" disabled>Confirm Booking</button>
-          <p class="note">Demo only — no real payment is processed.</p>
-        </aside>
-      </div>
-    </section>
-  </main>
-
-  <div id="successModal" class="modal hidden">
-    <div class="modal-card">
-      <div class="success-icon">✓</div>
-      <h2>Booking Successful!</h2>
-      <p id="confirmationText"></p>
-      <button id="finishBtn" class="primary full">Finish & Close</button>
-      <button id="stayBtn" class="text-btn">Stay on page</button>
+<main class="container">
+  <section class="card">
+    <h2>⭐ Recommended Movies</h2>
+    <p class="section-note">Choose a movie to quickly add it to your booking.</p>
+    <div class="movie-grid">
+      <button class="movie-card" data-movie="RRR" data-price="180">
+        <span class="poster">🔥</span><strong>RRR</strong><small>Action • ₹180</small>
+      </button>
+      <button class="movie-card" data-movie="Kalki 2898 AD" data-price="200">
+        <span class="poster">🚀</span><strong>Kalki 2898 AD</strong><small>Sci-Fi • ₹200</small>
+      </button>
+      <button class="movie-card" data-movie="Pushpa 2" data-price="220">
+        <span class="poster">🌲</span><strong>Pushpa 2</strong><small>Action • ₹220</small>
+      </button>
+      <button class="movie-card" data-movie="Interstellar" data-price="250">
+        <span class="poster">🌌</span><strong>Interstellar</strong><small>Sci-Fi • ₹250</small>
+      </button>
+      <button class="movie-card" data-movie="Baahubali 2" data-price="190">
+        <span class="poster">⚔️</span><strong>Baahubali 2</strong><small>Epic • ₹190</small>
+      </button>
+      <button class="movie-card" data-movie="KGF Chapter 2" data-price="210">
+        <span class="poster">⛏️</span><strong>KGF Chapter 2</strong><small>Action • ₹210</small>
+      </button>
     </div>
-  </div>
+  </section>
 
-  <footer>MovieBook Demo • Built with HTML, CSS & JavaScript</footer>
-  <script src="script.js"></script>
+  <section class="card">
+    <h2>1. Select Movie</h2>
+    <select id="movie">
+      <option value="RRR" data-price="180">RRR - ₹180</option>
+      <option value="Kalki 2898 AD" data-price="200">Kalki 2898 AD - ₹200</option>
+      <option value="Pushpa 2" data-price="220">Pushpa 2 - ₹220</option>
+      <option value="Interstellar" data-price="250">Interstellar - ₹250</option>
+        <option value="Baahubali 2" data-price="190">Baahubali 2 - ₹190</option>
+        <option value="KGF Chapter 2" data-price="210">KGF Chapter 2 - ₹210</option>
+    </select>
+  </section>
+
+  <section class="card">
+    <h2>2. Theatre & Showtime</h2>
+    <select id="theatre">
+      <option>INOX - Tirupati</option>
+      <option>PVR Cinemas - Tirupati</option>
+      <option>Asian Cinemas - Tirupati</option>
+    </select>
+
+    <div class="showtimes">
+      <button class="time-btn">10:00 AM</button>
+      <button class="time-btn">1:30 PM</button>
+      <button class="time-btn">5:00 PM</button>
+      <button class="time-btn">8:30 PM</button>
+    </div>
+    <p id="selectedTime">No showtime selected</p>
+  </section>
+
+  <section class="card">
+    <h2>3. Select Seats</h2>
+    <div class="screen">SCREEN</div>
+    <div id="seats" class="seats"></div>
+    <div class="legend">
+      <span><i class="available"></i> Available</span>
+      <span><i class="selected"></i> Selected</span>
+      <span><i class="occupied"></i> Occupied</span>
+    </div>
+  </section>
+
+  <section class="card summary">
+    <h2>4. Booking Summary</h2>
+    <p>Movie: <strong id="summaryMovie">RRR</strong></p>
+    <p>Theatre: <strong id="summaryTheatre">INOX - Tirupati</strong></p>
+    <p>Showtime: <strong id="summaryTime">Not selected</strong></p>
+    <p>Seats: <strong id="summarySeats">None</strong></p>
+    <p>Tickets: <strong id="ticketCount">0</strong></p>
+    <h3>Total: ₹<span id="total">0</span></h3>
+
+    <button id="payBtn" class="book-btn">Proceed to Online Payment</button>
+    <p id="message"></p>
+  </section>
+</main>
+
+<footer>
+  <p>Educational project using HTML + CSS + JavaScript + Razorpay Test Mode</p>
+</footer>
+
+<!-- Razorpay Checkout -->
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
